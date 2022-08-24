@@ -39,7 +39,7 @@ void expandByteSequence(struct Lzf* lzf, uint ctrl) {
     int reference = lzf->outIndex - ((int)(ctrl&0x1f) << 8) - 1;
 
     if (len == 7) {
-        len += *(int *) (&lzf->inBuffer + lzf->inIndex);
+        len += (int)lzf->inBuffer[lzf->inIndex];
         lzf->inIndex++;
     }
 
@@ -47,7 +47,7 @@ void expandByteSequence(struct Lzf* lzf, uint ctrl) {
         exit(1);
     }
 
-    reference -= *(int *) (&lzf->inBuffer + lzf->inIndex);
+    reference -= (int)lzf->inBuffer[lzf->inIndex];
 
     lzf->inIndex++;
     len += 2;
