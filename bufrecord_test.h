@@ -8,14 +8,15 @@
 #include <stdio.h>
 #include "minunit.h"
 #include "lib/bufrecord.c"
+#include "lib/conversions.h"
 
 static char* test_lots_of_records() {
     int headerSize = 512;
     FILE* stream = fopen("../test_files/LotsOfRecords.yxdb", "rb");
     uint* header = malloc(headerSize);
     fread(header, 1, headerSize, stream);
-    int metaInfoSize = (int)*(int *)(header+80) * 2;
-    long totalRecords = (long)*(long *)(header+104);
+    int metaInfoSize = (int)bytesToUint32(header+80) * 2;
+    long totalRecords = (long)bytesToUint64(header+104);
 
     fseek(stream, metaInfoSize, SEEK_CUR);
     mu_assertExpected("expected header size 134 but got %d\n", 134, metaInfoSize);
