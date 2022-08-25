@@ -3,4 +3,4 @@ project(lib C)
 
 set(CMAKE_C_STANDARD 17)
 
-add_library(lib odbc.c lzf.c)
+add_library(lib odbc.c lzf.c bufrecord.c)

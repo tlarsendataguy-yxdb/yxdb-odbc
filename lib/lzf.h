@@ -5,7 +5,7 @@
 #ifndef YXDB_ODBC_LZF_H
 #define YXDB_ODBC_LZF_H
 
-#define uint unsigned char
+#include "uint.h"
 
 const int bufferSize = 262144;
 
