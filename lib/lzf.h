@@ -14,9 +14,9 @@ struct Lzf {
     uint* outBuffer;
     int   inIndex;
     int   outIndex;
-    int   inLen;
+    long  inLen;
 };
 
-int Decompress(struct Lzf*, int);
+long Decompress(struct Lzf*, long);
 
 #endif //YXDB_ODBC_LZF_H

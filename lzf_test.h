@@ -24,8 +24,8 @@ static char* test_lzf_small_control_values() {
 
     int written = Decompress(&lzf, 6);
     uint expected[5] = {1,2,3,4,5};
-    mu_assertExpected("expected 5 written bytes but got %d\n", written, 5);
-    mu_assert("outData does not have the expected values\n", arrayEquals(outData, expected, 5));
+    mu_assertExpected("test_lzf_small_control_values: expected %d written bytes but got %d\n", 5, written);
+    mu_assert("test_lzf_small_control_values: outData does not have the expected values\n", arrayEquals(outData, expected, 5));
     return 0;
 }
 
@@ -36,8 +36,8 @@ static char* test_lzf_large_control_values() {
 
     int written = Decompress(&lzf, 6);
     uint expected[6] = {1, 2, 3, 2, 3, 2};
-    mu_assertExpected("expected 6 written bytes but got %d\n", written, 6);
-    mu_assert("outData does not have the expected values\n", arrayEquals(outData, expected, 6));
+    mu_assertExpected("test_lzf_large_control_values: expected %d written bytes but got %d\n", 6, written);
+    mu_assert("test_lzf_large_control_values: outData does not have the expected values\n", arrayEquals(outData, expected, 6));
     return 0;
 }
 
@@ -48,8 +48,8 @@ static char* test_lzf_large_control_value_length_of_7() {
 
     int written = Decompress(&lzf, 13);
     uint expected[19] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1};
-    mu_assertExpected("expected 19 written bytes but got %d\n", written, 19);
-    mu_assert("outData does not have the expected values\n", arrayEquals(outData, expected, 19));
+    mu_assertExpected("test_lzf_large_control_value_length_of_7: expected %d written bytes but got %d\n", 19, written);
+    mu_assert("test_lzf_large_control_value_length_of_7: outData does not have the expected values\n", arrayEquals(outData, expected, 19));
     return 0;
 }
 

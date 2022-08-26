@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <libc.h>
 #include "lzf.h"
+#include "min.h"
 
 void reset(struct Lzf* lzf) {
     lzf->inIndex = 0;
@@ -19,13 +20,6 @@ void copyByteSequence(struct Lzf* lzf, uint ctrl) {
     memcpy(lzf->outBuffer+lzf->outIndex, lzf->inBuffer+lzf->inIndex, len);
     lzf->outIndex += len;
     lzf->inIndex += len;
-}
-
-int min(int arg1, int arg2) {
-    if (arg1 < arg2) {
-        return arg1;
-    }
-    return arg2;
 }
 
 int copyFromReferenceAndIncrement(struct Lzf* lzf, int reference, int size) {
@@ -53,13 +47,13 @@ void expandByteSequence(struct Lzf* lzf, uint ctrl) {
     len += 2;
 
     while (len > 0) {
-        int size = min(len, lzf->outIndex - reference);
+        int size = minInt(len, lzf->outIndex - reference);
         reference = copyFromReferenceAndIncrement(lzf, reference, size);
         len -= size;
     }
 }
 
-int Decompress(struct Lzf* lzf, int len) {
+long Decompress(struct Lzf* lzf, long len) {
     lzf->inLen = len;
     reset(lzf);
 

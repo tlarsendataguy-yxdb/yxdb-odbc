@@ -11,8 +11,8 @@
 
 struct BufferedRecordReader {
     uint* recordBuffer;
-    int   recordBufferSize;
-    int   recordBufferIndex;
+    long   recordBufferSize;
+    long   recordBufferIndex;
     long  totalRecords;
     FILE* stream;
     int   fixedLen;
@@ -21,8 +21,8 @@ struct BufferedRecordReader {
     uint* lzfOut;
     struct Lzf lzf;
     uint lzfLengthBuffer[4];
-    int lzfOutIndex;
-    int lzfOutSize;
+    long lzfOutIndex;
+    long lzfOutSize;
     long currentRecord;
 };
 
