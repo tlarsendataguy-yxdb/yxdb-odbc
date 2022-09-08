@@ -2,8 +2,8 @@
 // Created by Thomas Larsen on 8/25/22.
 //
 
-#ifndef YXDB_ODBC_BUFRECORD_TEST_H
-#define YXDB_ODBC_BUFRECORD_TEST_H
+#ifndef YXDB_ODBC_TEST_BUFRECORD_H
+#define YXDB_ODBC_TEST_BUFRECORD_H
 
 #include <stdio.h>
 #include "minunit.h"
@@ -55,4 +55,4 @@ static char* test_very_long_field() {
     return 0;
 }
 
-#endif //YXDB_ODBC_BUFRECORD_TEST_H
+#endif //YXDB_ODBC_TEST_BUFRECORD_H

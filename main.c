@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "minunit.h"
-#include "lzf_test.h"
-#include "bufrecord_test.h"
+#include "test_lzf.h"
+#include "test_bufrecord.h"
 
 int tests_run = 0;
 int tests_passed = 0;

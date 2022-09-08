@@ -2,8 +2,8 @@
 // Created by Thomas Larsen on 8/25/22.
 //
 
-#ifndef YXDB_ODBC_LZF_TEST_H
-#define YXDB_ODBC_LZF_TEST_H
+#ifndef YXDB_ODBC_TEST_LZF_H
+#define YXDB_ODBC_TEST_LZF_H
 
 #include "lib/lzf.c"
 #include "minunit.h"
@@ -53,4 +53,4 @@ static char* test_lzf_large_control_value_length_of_7() {
     return 0;
 }
 
-#endif //YXDB_ODBC_LZF_TEST_H
+#endif //YXDB_ODBC_TEST_LZF_H
